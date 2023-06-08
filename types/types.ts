@@ -9,3 +9,10 @@ export interface Shot {
     likeCount?: number;
     viewCount?: number;
 }
+
+export interface User {
+    _id: string;
+    name: string;
+    email: string;
+  }
+  

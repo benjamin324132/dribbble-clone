@@ -2,6 +2,7 @@ import Content from "@/components/Content";
 import Filters from "@/components/Filters";
 import NavBar from "@/components/NavBar";
 import { Shot } from "@/types/types";
+import { cache } from "react";
 
 const getShots = async () => {
   const res  = await fetch("http://localhost:3000/api/shots");

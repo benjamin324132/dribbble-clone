@@ -40,7 +40,7 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     await dbConnect();
-    const shots = await Shot.find();
+    const shots = await Shot.find().sort({created_at: -1});
     return NextResponse.json(shots);
   } catch (error) {
     return new Response("Something went wrong", { status: 500 });

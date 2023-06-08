@@ -15,6 +15,9 @@ interface IParams {
 
 const Page = async ({ params }: { params: IParams }) => {
   const shot: Shot =  await getShot(params.id);
+
+ 
+
   return (
     <main className="w-full">
       {/* @ts-expect-error Server Component */}

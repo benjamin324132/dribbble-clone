@@ -7,6 +7,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Link from "next/link";
+import DribbbleIcon from "@/icons/dribbble";
 
 interface AuthFormProps {
   isRegister?: boolean;
@@ -59,6 +61,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ isRegister }) => {
 
   return (
     <div className="max-w-xl p-4">
+      <div className="grid place-items-center mb-4">
+        <Link href="/">
+          <DribbbleIcon />
+        </Link>
+      </div>
       <Heading
         center
         title={isRegister ? "Sign up" : "Log in"}
