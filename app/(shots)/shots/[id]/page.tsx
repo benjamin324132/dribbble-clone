@@ -3,7 +3,7 @@ import ShotContent from "@/components/ShotContent";
 import { Shot } from "@/types/types";
 
 const getShot = async (id: string) => {
-  const res  = await fetch(`http://localhost:3000/api/shots/${id}`, { cache: "no-cache"});
+  const res  = await fetch(`http://localhost:3000/api/shots/${id}`, { cache: "default"});
   const data = await res.json();
   return data;
 }

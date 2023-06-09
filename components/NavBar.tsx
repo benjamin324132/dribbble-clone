@@ -4,6 +4,7 @@ import ButtonLink from "./ButtonLink";
 import Avatar from "./Avatar";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import UserAccountNav from "./UserAccountNav";
+import SearchForm from "./SearchForm";
 
 const NavBar = async () => {
   const currentUser = await getCurrentUser();
@@ -38,10 +39,7 @@ const NavBar = async () => {
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <input
-          className="bg-[#f4f5fb] px-4 py-2.5 rounded-full outline-none font-light hidden md:block"
-          placeholder="Search..."
-        />
+        <SearchForm />
         {currentUser ? (
           <>
             <ButtonLink url="/uploads/new" label="Share Work" />

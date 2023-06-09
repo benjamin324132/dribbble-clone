@@ -9,8 +9,8 @@ const Avatar: React.FC<AvatarProps> = ({ src, big }) => {
   return (
     <Image
       src={src || "/images/placeholder.jpg"}
-      height={big ? "50" :"35"}
-      width={big ? "50" :"35"}
+      height={big ? "70" :"35"}
+      width={big ? "70" :"35"}
       alt="avatar"
       className=" rounded-full"
     />
