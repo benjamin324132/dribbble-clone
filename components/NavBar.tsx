@@ -10,7 +10,7 @@ const NavBar = async () => {
   const currentUser = await getCurrentUser();
 
   return (
-    <nav className="px-6 py-8 max-w-[1400px] mx-auto flex items-center justify-between">
+    <nav className="px-4 py-8 max-w-[1400px] mx-auto flex items-center justify-between">
       <div className="flex items-center gap-6">
         <div>
           <Link href="/">
@@ -46,6 +46,7 @@ const NavBar = async () => {
             <UserAccountNav
               userName={currentUser?.name}
               email={currentUser.email}
+              userId={currentUser.id}
             />
           </>
         ) : (

@@ -4,29 +4,42 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Input from "./Inputs";
 import { useState } from "react";
 import axios from "axios";
+import { Shot } from "@/types/types";
 
-const UploadForm = () => {
+interface UploadFormProps {
+  shot?: Shot
+}
+
+const UploadForm: React.FC<UploadFormProps> = ({
+  shot
+}) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({
     defaultValues: {
-      img: "",
-      name: "",
-      description: "",
+      img: shot?.img || "",
+      name: shot?.name || "",
+      description: shot?.description || "",
     },
   });
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post("/api/shots", {
-        img: values.img,
-        name: values.name,
-        description: values.description,
-      });
-
-      console.log(data);
-      reset();
+      if(shot){
+        const { data } = await axios.put(`/api/shots/${shot._id}`, {
+          img: values.img,
+          name: values.name,
+          description: values.description,
+        });
+      }else {
+        const { data } = await axios.post("/api/shots", {
+          img: values.img,
+          name: values.name,
+          description: values.description,
+        });
+        reset();
+      }
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -61,7 +74,7 @@ const UploadForm = () => {
         disabled={isLoading}
         className="w-full bg-[#ea4c89] py-2 px-3 rounded-md text-white font-semibold disabled:cursor-not-allowed disabled:opacity-50"
       >
-        Save
+       {shot ? "Edit" : "Save"}
       </button>
     </form>
   );

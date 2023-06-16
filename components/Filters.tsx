@@ -43,7 +43,7 @@ const Filters = () => {
   );
 
   return (
-    <div className="px-6 py-8 max-w-[1400px] mx-auto flex items-center justify-between overflow-x-scroll md:overflow-x-hidden">
+    <div className="px-4 py-8 max-w-[1400px] mx-auto flex items-center justify-between overflow-x-scroll md:overflow-x-hidden">
       <div>
         <button className="px-3 py-2 rounded-lg border">Following</button>
       </div>

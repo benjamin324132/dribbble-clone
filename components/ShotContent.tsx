@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MoreShotsByUser from "./MoreShotsByUser";
 import { Suspense } from "react";
+import RecomendedShots from "./RecomendedShots";
 
 interface ShotContentProps {
   shot: Shot;
@@ -11,7 +12,7 @@ interface ShotContentProps {
 
 const ShotContent: React.FC<ShotContentProps> = ({ shot }) => {
   return (
-    <div className="px-6 py-4 max-w-[1400px] mx-auto">
+    <div className="px-4 py-4 max-w-[1400px] mx-auto">
       <div className="max-w-[800px] mx-auto">
         <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
@@ -74,8 +75,15 @@ const ShotContent: React.FC<ShotContentProps> = ({ shot }) => {
       </div>
       <Suspense fallback={<span>Loading</span>}>
         {/* @ts-expect-error Server Component */}
-        <MoreShotsByUser userId={shot.userId} />
+        <MoreShotsByUser userId={shot.userId} userName={shot.userName} />
       </Suspense>
+      <div>
+        <div className="border-b border-1 flex-1" />
+        <Suspense fallback={<span>Loading</span>}>
+          {/* @ts-expect-error Server Component */}
+          <RecomendedShots />
+        </Suspense>
+      </div>
     </div>
   );
 };

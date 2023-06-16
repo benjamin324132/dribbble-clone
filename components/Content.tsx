@@ -8,7 +8,7 @@ interface ContentProps {
 
 const Content: React.FC<ContentProps> = ({ shots, showInfo = true }) => {
   return (
-    <div className="px-6 py-8 max-w-[1400px] mx-auto grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <div className="px-4 py-8 max-w-[1400px] mx-auto grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {shots.map((shot) => (
         <ShotCard key={shot._id} shot={shot} showInfo={showInfo} />
       ))}
