@@ -29,13 +29,9 @@ export async function GET(request: Request, { params }: { params: IParams }) {
   try {
     await dbConnect();
 
-    const shot = await Shot.find({ ...search });
+    const shots = await Shot.find({ ...search });
 
-    if (!shot) {
-      return new Response("Shots not found", { status: 404 });
-    }
-
-    return NextResponse.json(shot);
+    return NextResponse.json(shots);
   } catch (error) {
     return new Response("Something went wrong", { status: 500 });
   }

@@ -4,7 +4,7 @@ import NavBar from "@/components/NavBar";
 import { Shot } from "@/types/types";
 
 const getShots = async () => {
-  const res  = await fetch("http://localhost:3000/api/shots");
+  const res  = await fetch("http://localhost:3000/api/shots", { cache: "no-store" });
   const data = await res.json();
   return data;
 }

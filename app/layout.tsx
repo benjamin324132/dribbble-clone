@@ -1,10 +1,14 @@
+import { Metadata } from 'next'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Dribbble - Discover designers',
+export const metadata: Metadata = {
+  title: {
+    default: 'Dribbble - Discover designers',
+    template : ` %s | Dribbble`
+  },
   description: 'Discover the best designs.',
 }
 

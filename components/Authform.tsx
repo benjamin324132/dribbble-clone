@@ -102,7 +102,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isRegister }) => {
           disabled={isLoading}
           className="w-full bg-[#ea4c89] py-2 px-3 rounded-md text-white font-semibold disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Log in
+          {isRegister ? "Sign up" : "Log in"}
         </button>
       </form>
     </div>

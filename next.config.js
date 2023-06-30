@@ -4,7 +4,7 @@ const nextConfig = {
         serverActions: true,
     },
     images:{
-        domains: ["cdn.dribbble.com"]
+        domains: ["cdn.dribbble.com", "uploadthing.com"]
     }
 }
 
